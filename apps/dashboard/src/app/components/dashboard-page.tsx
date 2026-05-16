@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -173,13 +173,30 @@ export default function DashboardPage() {
     { day: "Sun", value: 55 },
   ];
 
-  const agentLogs = [
+  const [agentLogs, setAgentLogs] = useState([
     { id: "TX-902", agent: "Lead Qualifier", task: "CRM Data Enrichment", status: "Success", time: "2m ago", duration: "1.2s" },
     { id: "TX-901", agent: "Market Scout", task: "Competitor Price Scan", status: "Running", time: "5m ago", duration: "---" },
     { id: "TX-900", agent: "Blog Writer", task: "Drafting: AI Trends 2026", status: "Pending", time: "12m ago", duration: "---" },
-    { id: "TX-899", agent: "Lead Qualifier", task: "Email Sentiment Analysis", status: "Success", time: "18m ago", duration: "0.8s" },
-    { id: "TX-898", agent: "Market Scout", task: "Web Extraction: Exa AI", status: "Failed", time: "25m ago", duration: "4.5s" },
-  ];
+  ]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/activity-logs")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          const mappedLogs = data.map((log: any) => ({
+            id: log.id.substring(0, 8),
+            agent: "Agentic Interface",
+            task: log.description || log.actionType,
+            status: "Success",
+            time: new Date(log.createdAt).toLocaleTimeString(),
+            duration: "N/A"
+          }));
+          setAgentLogs(mappedLogs);
+        }
+      })
+      .catch(err => console.error("Error fetching activity logs", err));
+  }, []);
 
   return (
     <div className="min-h-screen text-white selection:bg-blue-500/20">

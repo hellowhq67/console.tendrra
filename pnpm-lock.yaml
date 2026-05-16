@@ -15,6 +15,9 @@ importers:
       '@dotenvx/dotenvx':
         specifier: ^1.65.0
         version: 1.65.0
+      '@vercel/blob':
+        specifier: ^2.3.3
+        version: 2.3.3
       firebase-admin:
         specifier: ^13.9.0
         version: 13.9.0
@@ -33,31 +36,31 @@ importers:
     dependencies:
       '@ai-sdk/google':
         specifier: latest
-        version: 3.0.73(zod@4.4.3)
+        version: 3.0.74(zod@4.4.3)
       '@daytonaio/sdk':
         specifier: ^0.175.0
         version: 0.175.0(ws@8.20.0)
       '@exalabs/ai-sdk':
         specifier: ^2.0.1
-        version: 2.0.1(ai@6.0.182(zod@4.4.3))
+        version: 2.0.1(ai@6.0.183(zod@4.4.3))
       '@huggingface/inference':
         specifier: ^3.3.5
         version: 3.15.0
       '@openrouter/ai-sdk-provider':
         specifier: ^2.9.0
-        version: 2.9.0(ai@6.0.182(zod@4.4.3))(zod@4.4.3)
+        version: 2.9.0(ai@6.0.183(zod@4.4.3))(zod@4.4.3)
       '@parallel-web/ai-sdk-tools':
         specifier: ^0.2.1
-        version: 0.2.1(ai@6.0.182(zod@4.4.3))
+        version: 0.2.1(ai@6.0.183(zod@4.4.3))
       '@repo/database':
         specifier: workspace:*
         version: link:../../packges/database
       ai:
         specifier: latest
-        version: 6.0.182(zod@4.4.3)
+        version: 6.0.183(zod@4.4.3)
       ai-sdk-tool-code-execution:
         specifier: ^0.0.2
-        version: 0.0.2(ai@6.0.182(zod@4.4.3))(zod@4.4.3)
+        version: 0.0.2(ai@6.0.183(zod@4.4.3))(zod@4.4.3)
       cookie-parser:
         specifier: ^1.4.7
         version: 1.4.7
@@ -383,14 +386,14 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/gateway@3.0.114':
-    resolution: {integrity: sha512-MqkZ5sd+qiq6RgIxELkoFQXg2/JwK+WCMaot7U+rtrZpWJl3fSyYvc28SC03b256o4F7OXjQtdjTqs81B2w+dA==}
+  '@ai-sdk/gateway@3.0.115':
+    resolution: {integrity: sha512-xonmGfN9pt54WdKqMzWe68BRYS3rsYvraBzioyA0gfNcecHs8Ir5qk/X8grJSyZ95hghjWiOphrK6bAc11E6SA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/google@3.0.73':
-    resolution: {integrity: sha512-o2MuIeyvZrFIeIbnbA8Thrr63irdyUBh0uWBZ2lY6yFeXuE/tcwyXF74bDKS4KvTu84uFpQfpbS/LXHGKKXz+g==}
+  '@ai-sdk/google@3.0.74':
+    resolution: {integrity: sha512-LMuDNHYNt4bfDMTE2oxe83ClF0HenCepkBs5Wb0LKBokuN1dxIUirPQHQvi1AuT+80SLyrOZ5c4wPGTVUl2A4w==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -3174,6 +3177,10 @@ packages:
   '@upsetjs/venn.js@2.0.0':
     resolution: {integrity: sha512-WbBhLrooyePuQ1VZxrJjtLvTc4NVfpOyKx0sKqioq9bX1C1m7Jgykkn8gLrtwumBioXIqam8DLxp88Adbue6Hw==}
 
+  '@vercel/blob@2.3.3':
+    resolution: {integrity: sha512-MtD7VLo6hU07eHR7bmk5SIMD290q574UaNYTe46qeyRT+hWrCy26CoAqfd7PnIefVXvRehRZBzukxuTO9iGTVg==}
+    engines: {node: '>=20.0.0'}
+
   '@vercel/microfrontends@2.0.1':
     resolution: {integrity: sha512-lVo3h0qVibxFkl8/oO+F50B6CtdHZgNmjPZMqME4iCH+EmQ7MDoFDQqN2Pjwn3Pnj/5SvCZPzmI0HQJlpQmP/g==}
     hasBin: true
@@ -3279,8 +3286,8 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  ai@6.0.182:
-    resolution: {integrity: sha512-ooJdziFjYrYRcsCx107roqA8gDTI3P82nUfroNWIhVvwrkYzEN3W1l50YK+XNqkUew8AiimaW0/SLBewRXMuHQ==}
+  ai@6.0.183:
+    resolution: {integrity: sha512-7pJ03j/XFbkdW6wadPWNCvNpFoxPwShEkzuACEvKBNeL+P5EbHrffh12Qzn1gdEO8Wunk1kkM37XX12bGQokUg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -4898,6 +4905,10 @@ packages:
   is-buffer@1.1.6:
     resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
 
+  is-buffer@2.0.5:
+    resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
+    engines: {node: '>=4'}
+
   is-core-module@2.16.2:
     resolution: {integrity: sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA==}
     engines: {node: '>= 0.4'}
@@ -4936,6 +4947,9 @@ packages:
     resolution: {integrity: sha512-KIYLCCJghfHZxqjYBE7rEy0OBuTd5xCHS7tHVgvCLkx7StIoaxwNW3hCALgEUjFfeRk+MG/Qxmp/vtETEF3tRA==}
     engines: {node: '>=14.16'}
     hasBin: true
+
+  is-node-process@1.2.0:
+    resolution: {integrity: sha512-Vg4o6/fqPxIjtxgUH5QLJhwZ7gW5diGCVlXpuUfELC62CuxM1iHcRe51f2W1FDy04Ai4KJkagKjx3XaqyfRKXw==}
 
   is-number@7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
@@ -7154,14 +7168,14 @@ snapshots:
       '@vercel/oidc': 3.2.0
       zod: 4.4.3
 
-  '@ai-sdk/gateway@3.0.114(zod@4.4.3)':
+  '@ai-sdk/gateway@3.0.115(zod@4.4.3)':
     dependencies:
       '@ai-sdk/provider': 3.0.10
       '@ai-sdk/provider-utils': 4.0.27(zod@4.4.3)
       '@vercel/oidc': 3.2.0
       zod: 4.4.3
 
-  '@ai-sdk/google@3.0.73(zod@4.4.3)':
+  '@ai-sdk/google@3.0.74(zod@4.4.3)':
     dependencies:
       '@ai-sdk/provider': 3.0.10
       '@ai-sdk/provider-utils': 4.0.27(zod@4.4.3)
@@ -8273,9 +8287,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.11':
     optional: true
 
-  '@exalabs/ai-sdk@2.0.1(ai@6.0.182(zod@4.4.3))':
+  '@exalabs/ai-sdk@2.0.1(ai@6.0.183(zod@4.4.3))':
     dependencies:
-      ai: 6.0.182(zod@4.4.3)
+      ai: 6.0.183(zod@4.4.3)
       zod: 3.24.4
 
   '@fastify/busboy@3.2.0': {}
@@ -9157,9 +9171,9 @@ snapshots:
       ai: 6.0.176(zod@4.4.3)
       zod: 4.4.3
 
-  '@openrouter/ai-sdk-provider@2.9.0(ai@6.0.182(zod@4.4.3))(zod@4.4.3)':
+  '@openrouter/ai-sdk-provider@2.9.0(ai@6.0.183(zod@4.4.3))(zod@4.4.3)':
     dependencies:
-      ai: 6.0.182(zod@4.4.3)
+      ai: 6.0.183(zod@4.4.3)
       zod: 4.4.3
 
   '@opentelemetry/api-logs@0.217.0':
@@ -9410,9 +9424,9 @@ snapshots:
 
   '@opentelemetry/semantic-conventions@1.41.1': {}
 
-  '@parallel-web/ai-sdk-tools@0.2.1(ai@6.0.182(zod@4.4.3))':
+  '@parallel-web/ai-sdk-tools@0.2.1(ai@6.0.183(zod@4.4.3))':
     dependencies:
-      ai: 6.0.182(zod@4.4.3)
+      ai: 6.0.183(zod@4.4.3)
       parallel-web: 0.3.2
       zod: 4.4.3
 
@@ -10749,6 +10763,14 @@ snapshots:
       d3-selection: 3.0.0
       d3-transition: 3.0.1(d3-selection@3.0.0)
 
+  '@vercel/blob@2.3.3':
+    dependencies:
+      async-retry: 1.3.3
+      is-buffer: 2.0.5
+      is-node-process: 1.2.0
+      throttleit: 2.1.0
+      undici: 6.24.1
+
   '@vercel/microfrontends@2.0.1(next@16.2.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@next/env': 15.5.4
@@ -10862,9 +10884,9 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai-sdk-tool-code-execution@0.0.2(ai@6.0.182(zod@4.4.3))(zod@4.4.3):
+  ai-sdk-tool-code-execution@0.0.2(ai@6.0.183(zod@4.4.3))(zod@4.4.3):
     dependencies:
-      ai: 6.0.182(zod@4.4.3)
+      ai: 6.0.183(zod@4.4.3)
       sandbox: 1.0.19
       zod: 4.4.3
     transitivePeerDependencies:
@@ -10880,9 +10902,9 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       zod: 4.4.3
 
-  ai@6.0.182(zod@4.4.3):
+  ai@6.0.183(zod@4.4.3):
     dependencies:
-      '@ai-sdk/gateway': 3.0.114(zod@4.4.3)
+      '@ai-sdk/gateway': 3.0.115(zod@4.4.3)
       '@ai-sdk/provider': 3.0.10
       '@ai-sdk/provider-utils': 4.0.27(zod@4.4.3)
       '@opentelemetry/api': 1.9.0
@@ -12670,6 +12692,8 @@ snapshots:
 
   is-buffer@1.1.6: {}
 
+  is-buffer@2.0.5: {}
+
   is-core-module@2.16.2:
     dependencies:
       hasown: 2.0.3
@@ -12695,6 +12719,8 @@ snapshots:
   is-inside-container@1.0.0:
     dependencies:
       is-docker: 3.0.0
+
+  is-node-process@1.2.0: {}
 
   is-number@7.0.0: {}
 

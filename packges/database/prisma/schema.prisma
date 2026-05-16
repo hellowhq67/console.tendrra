@@ -31,6 +31,8 @@ model User {
   integrations  AgentIntegration[]
   monitoringLogs AgentMonitoring[]
   knowledgeSources AgentKnowledgeSource[]
+  chats         Chat[]
+  activityLogs  ActivityLog[]
 
   @@map("users")
 }
@@ -374,4 +376,29 @@ enum ExecutionStatus {
   RUNNING
   COMPLETED
   FAILED
+}
+
+model Chat {
+  id        String   @id @default(cuid())
+  title     String   @default("New Chat")
+  userId    String
+  messages  Json     @default("[]")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("chats")
+}
+
+model ActivityLog {
+  id          String   @id @default(cuid())
+  userId      String
+  actionType  String
+  description String?
+  timestamp   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("activity_logs")
 }

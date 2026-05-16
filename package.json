@@ -10,7 +10,8 @@
     "dev": "dotenvx run -- turbo run dev",
     "dev:api": "dotenvx run -- turbo run dev -F api",
     "dev:dashboard": "dotenvx run -- turbo run dev -F dashboard",
-    "typecheck": "dotenvx run -- turbo run typecheck"
+    "typecheck": "dotenvx run -- turbo run typecheck",
+    "tunnel": "npx localtunnel --port 3024"
   },
   "devDependencies": {
     "@types/node": "20.11.30",
@@ -40,6 +41,7 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.65.0",
+    "@vercel/blob": "^2.3.3",
     "firebase-admin": "^13.9.0"
   }
 }

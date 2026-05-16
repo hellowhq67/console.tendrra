@@ -100,7 +100,7 @@ app.use("/api/mcp", mcpRouter);
 
 // AI SDK Chat Endpoint
 app.post("/api/chat", async (req, res) => {
-  const { messages, model: modelId } = req.body;
+  const { messages, model: modelId, id: chatId } = req.body;
   const selectedModel = modelId ?? "openrouter/free";
 
   try {
@@ -113,8 +113,10 @@ app.post("/api/chat", async (req, res) => {
       system:
         "You are a helpful AI assistant for WorldAutomate — an enterprise automation platform. " +
         "You are agentic and have access to powerful tools: " +
-        "1. webSearch: Use this to find real-time information. " +
+        "1. webSearch: Use this to find real-time, up-to-date information. " +
         "2. sandbox: Use this to execute code (TypeScript, Python) or shell commands. This is perfect for calculations, data processing, or building and testing software artifacts. " +
+        "CRITICAL: Always keep your output with current, up-to-date data. If asked about recent events, companies, or anything time-sensitive, ALWAYS use the webSearch tool to retrieve the latest information rather than relying on your training data. " +
+        "Before answering, you must ALWAYS think step-by-step and write your internal reasoning inside <thought> and </thought> XML tags. After the </thought> tag, provide your final response to the user. " +
         "Be concise, helpful, and proactive. When you use tools, explain what you are doing and summarize the results clearly.",
       tools: {
         webSearch: webSearch(),
@@ -123,10 +125,90 @@ app.post("/api/chat", async (req, res) => {
       stopWhen: stepCountIs(5),
     });
 
-    result.pipeUIMessageStreamToResponse(res);
+    const webResponse = result.toUIMessageStreamResponse({
+      originalMessages: messages,
+      onFinish: async ({ messages: completedMessages }) => {
+        if (!chatId) return;
+        try {
+          // Use a default user if req.user is not available
+          const userId = (req as any).user?.id || "temp-user-id";
+          
+          await prisma.chat.upsert({
+            where: { id: chatId },
+            update: { messages: completedMessages as any },
+            create: {
+              id: chatId,
+              title: "New Chat",
+              userId: userId,
+              messages: completedMessages as any,
+            }
+          });
+
+          await prisma.activityLog.create({
+            data: {
+              userId: userId,
+              actionType: "CHAT_MESSAGE",
+              description: `Chat message added to ${chatId}`
+            }
+          });
+        } catch (error) {
+          console.error("Save chat error:", error);
+        }
+      }
+    });
+
+    result.consumeStream();
+
+    if (webResponse.headers) {
+      webResponse.headers.forEach((value, key) => {
+        res.setHeader(key, value);
+      });
+    }
+
+    import("stream").then(({ Readable }) => {
+      if (webResponse.body) {
+        Readable.fromWeb(webResponse.body as any).pipe(res);
+      }
+    });
+
   } catch (error) {
     console.error("AI Chat Error:", error);
     res.status(500).json({ error: "Failed to process AI request" });
+  }
+});
+
+app.get("/api/chat/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const chat = await prisma.chat.findUnique({
+      where: { id },
+    });
+    
+    if (!chat) {
+      return res.status(404).json({ error: "Chat not found" });
+    }
+    
+    res.json(chat);
+  } catch (error) {
+    console.error("Error fetching chat:", error);
+    res.status(500).json({ error: "Failed to fetch chat" });
+  }
+});
+
+// Fetch Activity Logs
+app.get("/api/activity-logs", async (req, res) => {
+  try {
+    // Assuming user validation via headers or session; for now fetch top 10
+    const logs = await prisma.activityLog.findMany({
+      take: 10,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    res.json(logs);
+  } catch (error) {
+    console.error("Error fetching activity logs:", error);
+    res.status(500).json({ error: "Failed to fetch activity logs" });
   }
 });
 
