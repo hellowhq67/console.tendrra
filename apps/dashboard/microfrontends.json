@@ -2,13 +2,13 @@
   "$schema": "https://openapi.vercel.sh/microfrontends.json",
   "version": "1",
   "applications": {
-    "-tendrra-ai-v1": {
+    "tendrra-ai-v1-main-dashboard.vercel.app": {
       "packageName": "dashboard",
       "development": {
-        "fallback": "-tendrra-ai-v1.vercel.app"
+        "fallback": "tendrra-ai-v1-main-dashboard.vercel.app"
       }
     },
-    "tendrra-ai-v1-api": {
+    "tendrra-ai-v1-main-dashboard.vercel.app": {
       "routing": [
         {
           "paths": [
