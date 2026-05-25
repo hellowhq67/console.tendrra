@@ -19,22 +19,28 @@ import { cn } from "@/lib/utils";
 /* ──────────────────────────────────────────────────────── */
 const galleryItems = [
   {
-    title: "Enterprise Dashboard",
-    desc: "Real-time AI analytics and operations command center.",
-    img: "/saas_dashboard_poster_1_1778158563663.png",
+    title: "Tendrra Platform",
+    desc: "Enterprise-grade AI orchestration platform for modern businesses. Automate workflows, deploy agents, and scale operations.",
+    img: "/tendrra-platform-dashboard.png",
     category: "Platform"
   },
   {
-    title: "AI Agent Builder",
-    desc: "Node-based autonomous agent orchestration.",
-    img: "/ai_agent_builder_poster_1778158581171.png",
-    category: "Tools"
+    title: "Multi-Agent Workspace",
+    desc: "Create, manage, and deploy multiple AI agents with our intuitive builder. No-code to pro-code solutions.",
+    img: "/tendrra-agent-builder.png",
+    category: "Agents"
   },
   {
-    title: "Market Intelligence",
-    desc: "Deep-web research platform powered by Exa AI.",
-    img: "/research_platform_poster_1778158617807.png",
-    category: "Research"
+    title: "Enterprise Analytics",
+    desc: "Real-time insights and performance metrics across all your automated workflows and agent deployments.",
+    img: "/tendrra-analytics.png",
+    category: "Analytics"
+  },
+  {
+    title: "Secure Infrastructure",
+    desc: "HIPAA & SOC2 compliant infrastructure with enterprise-grade security for mission-critical operations.",
+    img: "/tendrra-security.png",
+    category: "Security"
   },
 ];
 
@@ -63,29 +69,29 @@ export function LandingHero() {
             className="text-center space-y-8 max-w-4xl mx-auto"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-500 text-[10px] font-bold tracking-[0.2em] uppercase">
-              <Sparkles className="h-3 w-3" /> The Agentic Agency
+              <Sparkles className="h-3 w-3" /> Enterprise AI Platform
             </div>
 
             <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-tight">
-              Building the future of <br />
+              Automate Your Business <br />
               <span className="bg-gradient-to-r from-neutral-200 via-neutral-500 to-neutral-200 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
-                Autonomous Enterprise.
+                With Tendrra AI.
               </span>
             </h1>
 
             <p className="text-lg text-neutral-500 max-w-xl mx-auto leading-relaxed">
-              High-performance AI orchestration for digital agencies.
+              Scale your enterprise with autonomous AI agents. Deploy workflows, automate operations, and accelerate growth.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 pt-6">
               <Link href="/signup">
                 <Button size="lg" className="h-12 px-8 text-sm bg-white text-black hover:bg-neutral-200 rounded-full font-bold transition-all">
-                  Get Started <ArrowRight className="h-4 w-4" />
+                  Start Free Trial <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/login">
+              <Link href="/demo">
                 <Button size="lg" variant="outline" className="h-12 px-8 text-sm border-neutral-800 text-neutral-400 hover:text-white hover:bg-white/5 rounded-full font-bold transition-all">
-                  Enterprise Login
+                  Request Demo
                 </Button>
               </Link>
             </div>
@@ -97,8 +103,8 @@ export function LandingHero() {
       <section id="showcase" className="py-24 px-6">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight">Our Solutions</h2>
-            <p className="text-neutral-500 max-w-xl mx-auto">High-performance platforms built for the modern agentic enterprise.</p>
+            <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight">Tendrra Solutions</h2>
+            <p className="text-neutral-500 max-w-xl mx-auto">Enterprise-grade AI automation platform designed for scale.</p>
           </div>
 
           <BentoGrid className="max-w-7xl mx-auto">
@@ -109,10 +115,14 @@ export function LandingHero() {
                 description={<span className="text-neutral-500 text-sm">{item.desc}</span>}
                 header={
                   <div className="flex flex-1 w-full h-full min-h-[10rem] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 relative group/image">
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity" />
                     <img
                       src={item.img}
                       alt={item.title}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover/image:scale-105"
+                      onError={(e) => {
+                        e.currentTarget.src = `https://placehold.co/600x400/111111/666666?text=${encodeURIComponent(item.title)}`;
+                      }}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
                       <Button size="sm" className="bg-white text-black hover:bg-neutral-200 rounded-full font-bold">
@@ -129,11 +139,11 @@ export function LandingHero() {
       </section>
 
       {/* ── FEATURES GRID ─────────────────────────── */}
-      <section className="py-24 px-6 border-t border-neutral-900/50">
+      <section id="features" className="py-24 px-6 border-t border-neutral-900/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight">Enterprise Infrastructure</h2>
-            <p className="text-neutral-500 max-w-xl mx-auto">Scalable, secure, and built for the high demands of agency operations.</p>
+            <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight">Tendrra Enterprise Features</h2>
+            <p className="text-neutral-500 max-w-xl mx-auto">HIPAA & SOC2 compliant infrastructure with enterprise-grade security.</p>
           </div>
           <FeaturesSectionDemo />
         </div>
@@ -154,14 +164,14 @@ export function LandingHero() {
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-3xl md:text-5xl font-medium text-white tracking-tight">Simple Pricing</h2>
-            <p className="text-neutral-500 max-w-xl mx-auto">Scalable plans for agencies of all sizes.</p>
+            <p className="text-neutral-500 max-w-xl mx-auto">Scalable plans for enterprise and agencies.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "Starter", price: "$49", features: ["3 AI Agents", "Basic Analytics", "Community Support"] },
-              { name: "Professional", price: "$149", features: ["10 AI Agents", "Advanced Analytics", "Priority Support", "Custom Integrations"], popular: true },
-              { name: "Enterprise", price: "Custom", features: ["Unlimited Agents", "Full White-label", "Dedicated Manager", "SLA Guarantee"] },
+              { name: "Starter", price: "$49", features: ["5 AI Agents", "Analytics Dashboard", "Email Support"] },
+              { name: "Professional", price: "$149", features: ["25 AI Agents", "Advanced Analytics", "Priority Support", "API Access"], popular: true },
+              { name: "Enterprise", price: "Custom", features: ["Unlimited Agents", "White-label", "Dedicated Manager", "SLA Guarantee"] },
             ].map((plan) => (
               <div key={plan.name} className={cn(
                 "relative p-8 rounded-3xl border transition-all duration-500 flex flex-col justify-between h-full",
@@ -231,7 +241,7 @@ export function LandingHero() {
               <span className="text-neutral-500 italic">Automate?</span>
             </h2>
             <p className="text-neutral-500 text-lg max-w-xl mx-auto leading-relaxed">
-              Ship your custom AI agents and dashboards in weeks, not months. Join the agency revolution today.
+              Deploy your custom AI agents and workflows in days, not months. Start your enterprise automation journey today.
             </p>
             <div className="flex flex-wrap justify-center gap-6 relative z-10">
               <Link href="/signup">
@@ -239,9 +249,9 @@ export function LandingHero() {
                   Get Started Free
                 </Button>
               </Link>
-              <Link href="/login">
+              <Link href="/demo">
                 <Button size="lg" variant="ghost" className="h-16 px-12 text-white hover:bg-white/5 font-bold rounded-full text-lg transition-all">
-                  Contact Sales
+                  Schedule Demo
                 </Button>
               </Link>
             </div>
@@ -257,19 +267,19 @@ export function LandingHero() {
               <div className="w-9 h-9 bg-neutral-800 rounded-lg flex items-center justify-center border border-neutral-700">
                 <GalleryVerticalEnd className="text-neutral-300 h-5 w-5" />
               </div>
-              <span className="font-bold text-xl text-white tracking-tighter">WORLD AUTOMATE.</span>
+              <span className="font-bold text-xl text-white tracking-tighter">Tendrra.</span>
             </div>
             <p className="text-neutral-600 max-w-xs text-sm leading-relaxed">
-              The premium software and AI agency building autonomous systems for the world's most ambitious companies.
+              Enterprise AI automation platform. Deploy autonomous agents, automate workflows, and accelerate growth.
             </p>
           </div>
           <div className="space-y-4">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Platform</h4>
             <div className="flex flex-col gap-2 text-neutral-500 text-sm">
               <Link href="#" className="hover:text-white transition-colors">AI Agents</Link>
-              <Link href="#" className="hover:text-white transition-colors">Research Hub</Link>
               <Link href="#" className="hover:text-white transition-colors">Workflows</Link>
-              <Link href="#" className="hover:text-white transition-colors">Academy</Link>
+              <Link href="#" className="hover:text-white transition-colors">Analytics</Link>
+              <Link href="#" className="hover:text-white transition-colors">Integrations</Link>
             </div>
           </div>
           <div className="space-y-4">
@@ -283,7 +293,7 @@ export function LandingHero() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-slate-900 flex justify-between items-center text-slate-600 text-xs font-bold uppercase tracking-[0.2em]">
-          <div>© 2026 WORLD AUTOMATE INC.</div>
+          <div>© 2026 Tendrra Inc.</div>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white">Twitter</Link>
             <Link href="#" className="hover:text-white">GitHub</Link>

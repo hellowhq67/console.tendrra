@@ -54,7 +54,7 @@ export function LandingHeader() {
               <GalleryVerticalEnd className="text-neutral-300 h-5 w-5" />
             </div>
             <span className="text-lg font-bold text-white tracking-tighter">
-              WORLD <span className="text-neutral-500">AUTOMATE.</span>
+              Tendrra<span className="text-neutral-500">.</span>
             </span>
           </Link>
           
@@ -134,13 +134,30 @@ export function LandingHeader() {
                 {link.name}
               </Link>
             ))}
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <Link href="/login" className="w-full">
-                <Button variant="outline" className="w-full border-slate-800 text-white hover:bg-white/5 rounded-full font-bold">Login</Button>
-              </Link>
-              <Link href="/signup" className="w-full">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 rounded-full font-bold">Sign Up</Button>
-              </Link>
+            <div className="pt-4">
+              {!loading && user ? (
+                <Link href="/dashboard" className="flex items-center gap-3 w-full p-3 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-all">
+                  <Avatar className="h-10 w-10 border border-neutral-700">
+                    <AvatarImage src={user.photoURL || undefined} />
+                    <AvatarFallback className="bg-neutral-900 text-neutral-400 text-xs font-bold">
+                      {user.email?.charAt(0).toUpperCase() || <UserIcon size={12} />}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white text-sm font-bold truncate">{user.displayName || user.email?.split('@')[0]}</p>
+                    <p className="text-neutral-500 text-xs truncate">{user.email}</p>
+                  </div>
+                </Link>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  <Link href="/login" className="w-full">
+                    <Button variant="outline" className="w-full border-slate-800 text-white hover:bg-white/5 rounded-full font-bold">Login</Button>
+                  </Link>
+                  <Link href="/signup" className="w-full">
+                    <Button className="w-full bg-white text-black hover:bg-neutral-200 rounded-full font-bold">Sign Up</Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </motion.div>
         )}

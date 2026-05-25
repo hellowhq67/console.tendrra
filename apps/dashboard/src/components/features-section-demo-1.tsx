@@ -28,44 +28,44 @@ export default function FeaturesSectionDemo() {
 
 const grid = [
   {
-    title: "HIPAA and SOC2 Compliant",
+    title: "HIPAA & SOC2 Compliant",
     description:
-      "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
+      "Enterprise-grade security and compliance. Your data is protected with military-grade encryption and audit trails.",
   },
   {
-    title: "Automated Social Media Posting",
+    title: "Multi-Agent Orchestration",
     description:
-      "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
+      "Deploy and manage multiple AI agents simultaneously. Scale your operations with parallel processing capabilities.",
   },
   {
-    title: "Advanced Analytics",
+    title: "Real-time Analytics",
     description:
-      "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
+      "Monitor agent performance and business metrics with live dashboards and customizable reporting.",
   },
   {
-    title: "Content Calendar",
+    title: "Workflow Automation",
     description:
-      "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
+      "Create complex workflows with our visual builder. Automate repetitive tasks with conditional logic and triggers.",
   },
   {
-    title: "Audience Targeting",
+    title: "Enterprise Integrations",
     description:
-      "Reach the right audience with advanced targeting options, including demographics, interests, and behaviors.",
+      "Connect to 100+ business tools including Salesforce, Slack, Google Workspace, and custom APIs.",
   },
   {
-    title: "Social Listening",
+    title: "24/7 Monitoring",
     description:
-      "Monitor social media conversations and trends to stay informed about what your audience is saying and respond in real-time.",
+      "Proactive system monitoring with automated alerts and self-healing capabilities for mission-critical operations.",
   },
   {
-    title: "Customizable Templates",
+    title: "White-label Solutions",
     description:
-      "Create stunning social media posts with our customizable templates, designed to fit your brand's unique style and voice.",
+      "Fully customizable branding and domain. Deploy Tendrra under your own company identity.",
   },
   {
-    title: "Collaboration Tools",
+    title: "Dedicated Support",
     description:
-      "Work seamlessly with your team using our collaboration tools, allowing you to assign tasks, share drafts, and provide feedback in real-time.",
+      "24/7 enterprise support with SLA guarantees. Get dedicated account managers for critical issues.",
   },
 ];
 
